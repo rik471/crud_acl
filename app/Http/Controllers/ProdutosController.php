@@ -17,14 +17,14 @@ class ProdutosController extends Controller
 
     public function index()
     {
-        $this->model->all();
-        return view('produtos::index');
+       $produtos = $this->model->all();
+        return view('index', compact('produtos'));
     }
 
-    public function create()
+    public function list()
     {
-        $this->model->all();
-        return $this->response->view('produtos::create');
+       $produtos = $this->model->first();
+        return $this->response->view('index', compact('produtos'));
     }
 
     public function store()
