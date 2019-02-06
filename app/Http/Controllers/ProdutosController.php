@@ -27,10 +27,16 @@ class ProdutosController extends Controller
         return $this->response->view('index', compact('produtos'));
     }
 
-    public function store()
+    public function create()
     {
-        $this->validate();
-        return $this->model->create($request->only($this->model->fillable));
+        $produtos = $this->model->all();
+        return view('create', compact('produtos'));
+    }
+
+    public function store(Request $request)
+    {
+        $produtos = $this->model->create($request->only($this->model->fillable));
+        return redirect()->route('produtos.index');
     }
 
     public function update($id)

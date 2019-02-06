@@ -63,7 +63,10 @@
     </head>
 
 <body>
-
+<div class="links" style="text-align: right">
+    <a href="{{ route('produtos.create')}}">Criar Produto</a>
+</div>
+<br><br>
 <div>
     <table>
         <thead>
